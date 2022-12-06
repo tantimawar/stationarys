@@ -1,0 +1,32 @@
+<?php
+
+use JetBrains\PhpStorm\Internal\ReturnTypeContract;
+
+$conn = mysqli_connect("localhost", "root", "", "toko_atk");
+
+function register($data)
+{
+    global $conn;
+
+    $username = strtolower(stripslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+
+    $result = mysqli_query($conn, "SELECT username FROM tb_akun WHERE username = '$username'");
+
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('username sudah tersedia!')
+            </script>";
+        return false;
+    }
+
+
+
+    //enkripsi password
+    $rpassword = password_hash($password, PASSWORD_DEFAULT);
+
+    //tambahkan userbaru ke database
+    mysqli_query($conn, "INSERT INTO tb_akun VALUES('', '$username', '$rpassword')");
+
+    return mysqli_affected_rows($conn);
+}

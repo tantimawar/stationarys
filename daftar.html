@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Stationary's</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/masuk.css">
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="koneksi_daftar.php">
+                <h1>Daftar</h1>
+                <span>Isi data pribadi dulu yuk!</span>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <input type="nama" placeholder="Nama lengkap" />
+                <input type="nomer" placeholder="Nomor telepon" />
+                <input type="adress" placeholder="Alamat" />
+                <button type="submit" name="daftar"><a href="index.html" >Daftar</a></button>
+            </form>
+        </div>
+        <div class="form-container log-in-container">
+            <form action="#">
+                <h1>Masuk</h1>
+                <span></span>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <button><a href="index.html" >Masuk</a></button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Selamat Datang!</h1>
+                    <p>Sudah punya akun? Masuk</p>
+                    <button class="ghost" id="logIn">Masuk</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Halo, Nery's</h1>
+                    <p>Belum punya akun? Daftar</p>
+                    <button class="ghost" id="signUp">Daftar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

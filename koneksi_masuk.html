@@ -1,0 +1,38 @@
+<?php
+require('koneksi.php');
+
+if (isset($_POST["login"])) {
+
+  $username = $_POST["username"];
+  $upassword = $_POST["password"];
+
+  $result = mysqli_query($conn, "SELECT * FROM `tb_akun` WHERE username = '$username'");
+
+  list($id, $username, $email, $password) = mysqli_fetch_array($result);
+
+  if (mysqli_num_rows($result) > 0) {
+    if (password_verify($upassword, $password)) {
+      session_start();
+      $_SESSION['username'] = $username;
+      header('location: index.php');
+      die();
+    } else {
+      echo "<script>
+              alert('username atau password anda salah, silahkan login kembali')
+              </script>";
+    }
+
+    //Mengeck Kondisi
+    //Kondisi ketika form dengan name=admin
+    if(isset($_POST['admin'])){
+        $result = mysqli_query($koneksi,"select *from admin where username = '$username' and password = '$password'")
+        or die (mysqli_error($koneksi));
+        $_SESSION['admin']=true;
+    }
+
+    //Kondisi ketika form dengan name!=admin
+    
+  }
+
+  $error = true;
+}

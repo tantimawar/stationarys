@@ -1,0 +1,12 @@
+<?php
+require ('koneksi.php');
+
+if (isset($_POST["daftar"])) {
+
+  if(register($_POST) > 0 ) {
+    echo  header("Location: index.php");
+  } else {
+    echo mysqli_error($conn);
+  }
+}
+?>
